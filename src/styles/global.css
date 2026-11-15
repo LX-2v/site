@@ -65,7 +65,7 @@
     *,
     *::before,
     *::after {
-      @apply transition-none !
+      transition: none !important;
     }
   }
 }
