@@ -60,6 +60,6 @@ The current config loader recognizes these environment variables: `PORT`, `LEOXY
 
 Security settings can be set under `server.security` and, for HTTP routes, `upstream[].security`. They cover rate limits, API keys, HS256 JWT verification, allowed and denied CIDRs, method and path rules, maximum body size, trusted proxy CIDRs, TLS, and optional Redis-backed global rate limiting. JWT tokens require an expiration; configured JWT secrets must be at least 32 bytes. Set both `tls_cert` and `tls_key` to enable server TLS. mTLS also requires `client_ca`.
 
-Timeouts are configured in seconds. The loader supplies defaults for connect, read, write, idle, and request timeout fields; the request field is currently not applied by the runtime server.
+Timeouts are configured in seconds. The `request` timeout sets the maximum time to wait for an upstream response header. SSE and Upgrade requests have their connection read and write deadlines cleared so they can remain open beyond the server read and write timeouts.
 
 For a field-by-field explanation of every setting in the repository's sample YAML, see [Configuration reference](../config-reference/). For CLI flags, environment variables, protocols, and endpoints, see [Reference](../reference/).
