@@ -176,4 +176,6 @@ These explicit overrides are implemented by the config loader:
 | `PROJECT_NAME` | `watcher.project_name` |
 | `Watcher_WEBHOOK_URL` | `watcher.webhook_url` |
 
+Runtime profiling is configured separately from YAML: `LEOXY_PPROF=true` exposes the Go pprof endpoints, while `LEOXY_MUTEX_PROFILE_FRACTION` and `LEOXY_BLOCK_PROFILE_RATE` set the respective runtime sampling values. Both profile rates are disabled unless explicitly set.
+
 Keep actual secrets in the environment rather than committing them to a YAML file. For CLI path options, endpoints, and validation rules, see [Reference](../reference/).

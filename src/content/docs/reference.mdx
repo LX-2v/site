@@ -29,6 +29,7 @@ The config validator accepts `http`, `https`, `http2`, `graphql`, and `websocket
 | `/health/ready` | Checks readiness of configured HTTP upstreams. |
 | `/metrics` | Exposes request/response metrics and watcher samples. |
 | `/leoxy` | Serves the bundled Leoxy information page. |
+| `/debug/pprof/` | Go profiling endpoints, enabled only with `LEOXY_PPROF=true`. |
 
 `/metrics`, `/health/ready`, and `/leoxy` are restricted to internal CIDRs when internal CIDR restrictions are configured.
 
@@ -43,6 +44,9 @@ The config validator accepts `http`, `https`, `http2`, `graphql`, and `websocket
 | `API_KEYS` | Comma-separated global API keys. |
 | `REDIS_PASSWORD` | Global Redis password. |
 | `MEMORY_LIMIT_MB`, `PROJECT_NAME`, `Watcher_WEBHOOK_URL` | Watcher settings. |
+| `LEOXY_PPROF` | Enables the Go profiling endpoints when set to `true`. |
+| `LEOXY_MUTEX_PROFILE_FRACTION` | Enables mutex profiling with the specified runtime sampling fraction. |
+| `LEOXY_BLOCK_PROFILE_RATE` | Enables block profiling with the specified runtime sampling rate. |
 
 ## Validation
 
