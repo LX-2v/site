@@ -19,4 +19,4 @@ The build runs Astro's TypeScript/content checks and generates static output in 
 
 The workflow in `.github/workflows/website.yml` builds on pushes and pull requests that change `website/**`. It deploys `main` to GitHub Pages. In repository Settings → Pages, set the build and deployment source to **GitHub Actions**. Astro is configured for `https://elrefai99.github.io/Leoxy/`; update `site` and `base` in `astro.config.mjs` if the repository owner or Pages URL changes.
 
-The screenshots were supplied separately and used as the visual reference. The repository does not publish an official supported platform/version matrix, so the installation guide lists the Go toolchain version declared in `app/go.mod` without asserting a platform support guarantee
+The screenshots were supplied separately and used as the visual reference. The repository does not publish an official supported platform/version matrix, so the installation guide lists the Go toolchain version declared in `app/go.mod` without asserting a platform support guarantee.
