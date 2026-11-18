@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   vite: { plugins: [tailwindcss()] },
-  site: 'https://elrefai99.github.io',
+  site: 'https://leoxy.github.io',
   base: process.env.VERCEL ? '/' : process.env.NODE_ENV === 'production' ? '/Leoxy' : '/',
   integrations: [sitemap(), starlight({
     title: 'Leoxy Documentation',
