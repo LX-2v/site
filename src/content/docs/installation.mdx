@@ -15,12 +15,12 @@ docker pull mohamed0699/leoxy:latest
 Run the container and mount a local `leoxy/` directory for configuration and persisted runtime files:
 
 ```sh
-docker run --rm -p 80:80 -v "$PWD/leoxy:/app/leoxy" mohamed0699/leoxy:latest
+docker run --rm --cap-add=NET_BIND_SERVICE -p 80:80 -v "$PWD/leoxy:/app/leoxy" mohamed0699/leoxy:latest
 ```
 
 Leoxy reads `/app/leoxy/leoxy_config.yaml`. If it does not exist, Leoxy creates a default configuration there. Add your upstreams to that file before sending application traffic. To publish the container on a different host port, change the left side of the mapping, such as `-p 8080:80`.
 
-The image listens on container port `80` and includes a liveness health check at `/health/live`. For Docker Compose, upstream networking, and persistence details, see the [Docker deployment guide](https://github.com/elrefai99/Leoxy/blob/main/docs/docker.md).
+The image listens on container port `80` and includes a liveness health check at `/health/live`. `NET_BIND_SERVICE` lets its non-root process bind port 80 on runtimes that restrict low ports. For Docker Compose, upstream networking, and persistence details, see the [Docker deployment guide](https://github.com/elrefai99/Leoxy/blob/main/docs/docker.md).
 
 ## Build from source
 
