@@ -19,7 +19,7 @@ Pull and run the published Docker image:
 
 ```sh
 docker pull mohamed0699/leoxy:latest
-docker run --rm -p 80:80 -v "$PWD/leoxy:/app/leoxy" mohamed0699/leoxy:latest
+docker run --rm --cap-add=NET_BIND_SERVICE -p 80:80 -v "$PWD/leoxy:/app/leoxy" mohamed0699/leoxy:latest
 ```
 
 Leoxy reads `/app/leoxy/leoxy_config.yaml` and creates a default config if that file is missing. The generated default does not contain your application routes; add your upstreams before sending application traffic. See [Installation](./installation/) and [Configuration](./configuration/). To build the CLI from source instead, follow the source build instructions on the installation page.
