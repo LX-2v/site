@@ -56,3 +56,12 @@ Global rule:
 - Do not delete files, rename major directories, or rewrite large parts of the codebase without explicit approval.
 - Do not run destructive git or shell commands such as `git reset --hard`, `git checkout --`, or broad `rm` operations.
 - Do not alter deployment/infrastructure files (`Dockerfile`, `docker-compose.yml`, `ecosystem.config.cjs`) unless the task explicitly requires it.
+
+## Token Efficiency
+- Read only files relevant to the current task.
+- Avoid scanning the entire repository unless necessary.
+- Avoid repeating information already established.
+- Keep responses concise.
+- Do not generate documentation unless requested.
+- Do not perform unnecessary tool calls.
+- Summarize important context when starting a new task.
