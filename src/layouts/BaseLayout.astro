@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import Analytics from '@vercel/analytics/astro'
 import GitHubIcon from '../components/GitHubIcon.astro'
 import Logo from '../components/Logo.astro'
 import SiteFooter from '../components/SiteFooter.astro'
@@ -56,6 +57,7 @@ const canonical = new URL('/Leoxy/', 'https://elrefai99.github.io')
     </header>
     <slot />
     <SiteFooter />
+    <Analytics />
   </body>
 </html>
 
