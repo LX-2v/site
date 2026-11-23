@@ -45,6 +45,58 @@ const applicationJsonLd = {
         <Logo />
       </div>
     </section>
+    <section class="wrap feature-preview" aria-labelledby="why-title">
+      <div class="section-intro">
+        <span class="eyebrow">Why Leoxy</span>
+        <h2 id="why-title">Why Use Leoxy?</h2>
+        <p>Leoxy is more than a reverse proxy. It's a lightweight traffic management layer designed to give your applications better control over incoming traffic without the complexity of a full-scale infrastructure platform.</p>
+      </div>
+      <div class="preview-cards">
+        <article>
+          <span>01</span>
+          <h3>Lightweight by Design</h3>
+          <p>Built with Go to keep resource usage low while handling application traffic efficiently.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Smarter Traffic Management</h3>
+          <p>Route requests to multiple upstream services with load balancing, health checks, and automatic failover.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Security at the Edge</h3>
+          <p>Protect your services with rate limiting, API key authentication, JWT, mTLS, and IP-based access control.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Multiple Protocols</h3>
+          <p>Handle HTTP, WebSocket, GraphQL, TCP, and UDP traffic through a unified proxy layer.</p>
+        </article>
+        <article>
+          <span>05</span>
+          <h3>Built-in Observability</h3>
+          <p>Monitor proxy health and traffic through health endpoints, metrics, and optional profiling.</p>
+        </article>
+        <article>
+          <span>06</span>
+          <h3>Simple Deployment</h3>
+          <p>Keep your infrastructure straightforward with a lightweight, configurable proxy that fits naturally into Docker-based environments.</p>
+        </article>
+      </div>
+      <p class="text-center text-xl text-text">Leoxy — Control your traffic. Keep your infrastructure lightweight.</p>
+    </section>
+    <section class="wrap flow-card" aria-labelledby="how-title">
+      <p class="terminal-label">How it works</p>
+      <h2 id="how-title" class="mb-6 text-3xl text-text">One proxy between clients and your services.</h2>
+      <img
+        class="block h-auto w-full rounded-lg"
+        src={route('/leoxy-architecture.svg')}
+        alt="Leoxy architecture: incoming client traffic passes through Leoxy and routes to configured upstream services."
+        width="1525"
+        height="991"
+        loading="lazy"
+      />
+    </section>
     <section class="wrap terminal relative overflow-hidden rounded-sm border-black bg-black p-0" aria-label="Get started commands">
       <div class="flex h-11 items-center justify-between border-b border-black bg-black pl-4">
         <div class="flex items-center gap-1.5" aria-hidden="true"></div>
@@ -74,8 +126,12 @@ const applicationJsonLd = {
           </svg>
         </button>
       </div>
+      <div class="px-4 pt-3">
+        <p class="terminal-label">Get started with Docker</p>
+        <a class="text-sm text-muted underline underline-offset-4 hover:text-white" href="https://hub.docker.com/r/mohamed0699/leoxy">View Leoxy on Docker Hub</a>
+      </div>
       <pre class="m-0 overflow-x-auto whitespace-pre px-4 py-3 font-mono text-[13px] leading-6 text-[#d4d4d4]"><code id="docker-commands"><span class="text-[#60a5fa]">docker pull</span>{' '}<span class="text-[#fbbf24]">mohamed0699/leoxy:latest</span>
-<span class="text-[#60a5fa]">docker run</span>{' '}<span class="text-[#93c5fd]">--rm -p 80:80 -v</span>{' '}&quot;<span class="text-[#fbbf24]">$PWD/leoxy:/app/leoxy</span>&quot;{' '}<span class="text-[#fbbf24]">mohamed0699/leoxy:latest</span></code></pre>
+<span class="text-[#60a5fa]">docker run</span>{' '}<span class="text-[#93c5fd]">--rm --cap-add=NET_BIND_SERVICE -p 80:80 -v</span>{' '}&quot;<span class="text-[#fbbf24]">$PWD/leoxy:/app/leoxy</span>&quot;{' '}<span class="text-[#fbbf24]">mohamed0699/leoxy:latest</span></code></pre>
     </section>
     <section class="wrap feature-preview" aria-labelledby="features-title">
       <div class="section-intro">
