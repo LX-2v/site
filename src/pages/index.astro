@@ -47,9 +47,11 @@ const applicationJsonLd = {
     </section>
     <section class="wrap feature-preview" aria-labelledby="why-title">
       <div class="section-intro">
-        <span class="eyebrow">Why Leoxy</span>
         <h2 id="why-title">Why Use Leoxy?</h2>
-        <p>Leoxy is more than a reverse proxy. It's a lightweight traffic management layer designed to give your applications better control over incoming traffic without the complexity of a full-scale infrastructure platform.</p>
+        <p>
+          Leoxy is more than a reverse proxy. It's a lightweight traffic management layer designed to give your applications better control over incoming traffic without the complexity of a full-scale
+          infrastructure platform.
+        </p>
       </div>
       <div class="preview-cards">
         <article>
@@ -87,7 +89,9 @@ const applicationJsonLd = {
     </section>
     <section class="wrap flow-card" aria-labelledby="how-title">
       <p class="terminal-label">How it works</p>
-      <h2 id="how-title" class="mb-6 text-3xl text-text">One proxy between clients and your services.</h2>
+      <h2 id="how-title" class="mb-6 text-3xl text-text">
+        One proxy between clients and your services.
+      </h2>
       <img
         class="block h-auto w-full rounded-lg"
         src={route('/leoxy-architecture.svg')}
@@ -128,14 +132,15 @@ const applicationJsonLd = {
       </div>
       <div class="px-4 pt-3">
         <p class="terminal-label">Get started with Docker</p>
-        <a class="text-sm text-muted underline underline-offset-4 hover:text-white" href="https://hub.docker.com/r/mohamed0699/leoxy">View Leoxy on Docker Hub</a>
+        <a class="text-sm text-muted underline underline-offset-4 hover:text-white" href="https://hub.docker.com/r/mohamed0699/leoxy">
+          View Leoxy on Docker Hub
+        </a>
       </div>
       <pre class="m-0 overflow-x-auto whitespace-pre px-4 py-3 font-mono text-[13px] leading-6 text-[#d4d4d4]"><code id="docker-commands"><span class="text-[#60a5fa]">docker pull</span>{' '}<span class="text-[#fbbf24]">mohamed0699/leoxy:latest</span>
 <span class="text-[#60a5fa]">docker run</span>{' '}<span class="text-[#93c5fd]">--rm --cap-add=NET_BIND_SERVICE -p 80:80 -v</span>{' '}&quot;<span class="text-[#fbbf24]">$PWD/leoxy:/app/leoxy</span>&quot;{' '}<span class="text-[#fbbf24]">mohamed0699/leoxy:latest</span></code></pre>
     </section>
     <section class="wrap feature-preview" aria-labelledby="features-title">
       <div class="section-intro">
-        <span class="eyebrow">Features</span>
         <h2 id="features-title">A small proxy with clear controls.</h2>
         <p>Route requests, set access policies, and operate HTTP and stream listeners.</p>
       </div>

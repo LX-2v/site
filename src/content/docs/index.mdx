@@ -6,6 +6,37 @@ slug: docs
 
 Leoxy is a lightweight, on-demand proxy for small projects and development environments.
 
+## Why Use Leoxy?
+
+Leoxy is more than a reverse proxy. It's a lightweight traffic management layer designed to give your applications better control over incoming traffic without the complexity of a full-scale infrastructure platform.
+
+#### Lightweight by Design
+
+- Built with Go to keep resource usage low while handling application traffic efficiently.
+
+#### Smarter Traffic Management
+
+- Route requests to multiple upstream services with load balancing, health checks, and automatic failover.
+
+#### Security at the Edge
+
+- Protect your services with rate limiting, API key authentication, JWT, mTLS, and IP-based access control.
+
+#### Multiple Protocols
+
+- Handle HTTP, WebSocket, GraphQL, TCP, and UDP traffic through a unified proxy layer.
+
+#### Built-in Observability
+
+- Monitor proxy health and traffic through health endpoints, metrics, and optional profiling.
+
+#### Simple Deployment
+
+- Keep your infrastructure straightforward with a lightweight, configurable proxy that fits naturally into Docker-based environments.
+
+**Leoxy — Control your traffic. Keep your infrastructure lightweight.**
+
+
 ## What you can configure
 
 - HTTP routes with one upstream URL or a list of servers.
@@ -15,7 +46,7 @@ Leoxy is a lightweight, on-demand proxy for small projects and development envir
 
 ## Quick start
 
-Pull and run the published Docker image:
+Pull the published [Leoxy image from Docker Hub](https://hub.docker.com/r/mohamed0699/leoxy) and run it:
 
 ```sh
 docker pull mohamed0699/leoxy:latest
