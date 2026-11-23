@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import GitHubIcon from '../components/GitHubIcon.astro'
 import Logo from '../components/Logo.astro'
 const title = 'Leoxy — a lightweight reverse proxy'
 const description = 'Leoxy is a lightweight Go reverse proxy for routing HTTP, TCP, and UDP traffic to configured upstream services.'
@@ -36,7 +37,8 @@ const applicationJsonLd = {
           <a class="button button-primary" href={route('/docs/')}>
             Read the docs
           </a>
-          <a class="button button-secondary" href="https://github.com/elrefai99/Leoxy">
+          <a class="button button-secondary inline-flex items-center gap-2" href="https://github.com/elrefai99/Leoxy">
+            <GitHubIcon />
             View on GitHub
           </a>
         </div>

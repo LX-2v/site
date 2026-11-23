@@ -1,13 +1,14 @@
 ---
-import '../styles/global.css';
-import Logo from '../components/Logo.astro';
-import SiteFooter from '../components/SiteFooter.astro';
-const { title, description } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const route = (path: string) => `${base}${path}`;
-const canonical = new URL('/Leoxy/', 'https://elrefai99.github.io');
-
+import '../styles/global.css'
+import GitHubIcon from '../components/GitHubIcon.astro'
+import Logo from '../components/Logo.astro'
+import SiteFooter from '../components/SiteFooter.astro'
+const { title, description } = Astro.props
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const route = (path: string) => `${base}${path}`
+const canonical = new URL('/Leoxy/', 'https://elrefai99.github.io')
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,24 +19,65 @@ const canonical = new URL('/Leoxy/', 'https://elrefai99.github.io');
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={route('/favicon.svg')} />
     <link rel="apple-touch-icon" href={route('/apple-touch-icon.png')} />
-    <meta property="og:type" content="website" /><meta property="og:title" content={title} />
-    <meta property="og:description" content={description} /><meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:image" content="https://elrefai99.github.io/Leoxy/social-card.png" />
-    <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} /><meta name="twitter:image" content="https://elrefai99.github.io/Leoxy/social-card.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://elrefai99.github.io/Leoxy/social-card.png" />
   </head>
   <body>
-    <header class="site-header"><nav class="nav-wrap" aria-label="Main navigation">
-      <a class="brand" href={import.meta.env.BASE_URL} aria-label="Leoxy home"><Logo /><span>Leoxy</span></a>
-      <div class="nav-links">
-        <a href={route('/features/')}>Features</a>
-        <a href={route('/docs/')}>Docs</a>
-        <a class="button button-secondary" href="https://github.com/elrefai99/Leoxy">          
-          Github
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="brand" href={import.meta.env.BASE_URL} aria-label="Leoxy home">
+          <Logo />
+          <span>Leoxy</span>
         </a>
-      </div>
-    </nav></header>
+        <div class="nav-controls">
+          <div class="nav-links" id="primary-navigation" data-open="false">
+            <a href={route('/')}>Home</a>
+            <a href={route('/features/')}>Features</a>
+            <a href={route('/docs/')}>Docs</a>
+          </div>
+          <a class="button button-secondary inline-flex items-center gap-2 github-link" href="https://github.com/elrefai99/Leoxy" aria-label="Leoxy on GitHub">
+            <GitHubIcon />
+            <span>GitHub</span>
+          </a>
+          <button class="mobile-menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
+            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
     <slot />
     <SiteFooter />
   </body>
 </html>
+
+<script>
+  const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-toggle]')
+  const navigation = document.querySelector<HTMLElement>('#primary-navigation')
+
+  const setMenuOpen = (open: boolean) => {
+    menuButton?.setAttribute('aria-expanded', String(open))
+    menuButton?.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu')
+    navigation?.setAttribute('data-open', String(open))
+  }
+
+  menuButton?.addEventListener('click', () => {
+    setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true')
+  })
+
+  navigation?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false))
+  })
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false)
+  })
+</script>

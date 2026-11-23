@@ -84,6 +84,10 @@
     @apply flex min-h-[82px] items-center justify-between
   }
 
+  .nav-controls {
+    @apply flex items-center gap-8
+  }
+
   .brand {
     @apply flex items-center gap-3 text-text text-[22px] font-bold
   }
@@ -102,6 +106,14 @@
 
   .nav-links a:hover {
     @apply text-text
+  }
+
+  .github-link:hover {
+    @apply border-text text-text
+  }
+
+  .mobile-menu-toggle {
+    display: none;
   }
 
   .button {
@@ -454,19 +466,43 @@
   }
 
   .nav-wrap {
-    @apply min-h-[72px]
+    @apply relative min-h-[72px]
   }
 
   .brand {
     @apply text-[19px]
   }
 
-  .nav-links {
-    @apply gap-2.5 text-sm
+  .nav-controls {
+    @apply gap-2
   }
 
-  .nav-links .button {
-    @apply px-3
+  .nav-links {
+    @apply absolute left-0 right-0 top-full hidden flex-col items-stretch gap-0 border border-border bg-panel p-2
+  }
+
+  .nav-links[data-open='true'] {
+    @apply flex
+  }
+
+  .nav-links a {
+    @apply min-h-12 px-3
+  }
+
+  .github-link {
+    @apply h-11 w-11 min-h-11 p-0
+  }
+
+  .github-link span {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-lg border border-strong bg-transparent text-text
+  }
+
+  .mobile-menu-toggle:hover {
+    @apply border-text
   }
 
   .hero {
@@ -474,11 +510,23 @@
   }
 
   .hero-mark {
-    @apply row-start-1 justify-start
+    display: none;
   }
 
-  .hero-mark .logo-mark {
-    @apply w-[105px]
+  .hero-copy {
+    @apply text-center
+  }
+
+  .hero-copy>.eyebrow {
+    @apply mx-auto
+  }
+
+  .hero-copy>h1 {
+    @apply text-[clamp(34px,9vw,42px)]
+  }
+
+  .hero-copy>.button-row {
+    @apply justify-center
   }
 
   .hero-copy>p, .feature-hero>p {
